@@ -32,3 +32,13 @@ This scan reveals a two open ports:
 ![nmap](https://github.com/user-attachments/assets/cadfd25b-76ae-45df-8bb0-d3d8eff043d5)
 
 Let's check out he webserver on port 80/tcp.
+
+I was unable to connect the site so I added the site to the my /etc/hosts file. vim /etc/hosts. We can now explore the site.
+
+I then ran gobuster and nikto scans on the target:
+
+![nikto](https://github.com/user-attachments/assets/6c2ceba9-f5c4-43e8-b3d0-cfe569623681)
+
+![gobuster](https://github.com/user-attachments/assets/54590aef-db43-44fa-a332-a6b0a69a1d41)
+
+Let's check out /assets.
