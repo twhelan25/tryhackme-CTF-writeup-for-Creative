@@ -46,3 +46,15 @@ It is forbidden. What I'm going to try next is wfuzz to see if there's any hidde
 ```bash
 wfuzz -c -w /usr/share/wordlists/seclists/Discovery/DNS/subdomains-top1million-20000.txt --sc 200 -H "Host: FUZZ.creative.thm" -u http://creative.thm -t 100
 ```
+
+![wfuzz](https://github.com/user-attachments/assets/e93bef44-1ac1-4ee0-9633-a9439470c941)
+
+We see a subdomain called beta. Let's add it to the /etc/hosts file and visit it.
+Note: In order to sucessfully visit the subdomain it must be entered as http://beta.creative.thm.
+
+![urltester](https://github.com/user-attachments/assets/4a45641d-00b3-46e2-a0e0-d9ea32fdec41)
+
+If we put in http://localhost or http://127.0.0.1 (loop back address) we are taken to a frame work of the site.
+
+![localhost_framework](https://github.com/user-attachments/assets/07d83fcc-f314-4aa4-9695-ff19b46181d0)
+
