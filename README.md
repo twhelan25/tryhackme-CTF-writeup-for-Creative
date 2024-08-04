@@ -42,3 +42,7 @@ I then ran gobuster and nikto scans on the target:
 ![gobuster](https://github.com/user-attachments/assets/54590aef-db43-44fa-a332-a6b0a69a1d41)
 
 Let's check out /assets.
+It is forbidden. What I'm going to try next is wfuzz to see if there's any hidden subdomains.
+```bash
+wfuzz -c -w /usr/share/wordlists/seclists/Discovery/DNS/subdomains-top1million-20000.txt --sc 200 -H "Host: FUZZ.creative.thm" -u http://creative.thm -t 100
+```
