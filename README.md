@@ -58,3 +58,16 @@ If we put in http://localhost or http://127.0.0.1 (loop back address) we are tak
 
 ![localhost_framework](https://github.com/user-attachments/assets/07d83fcc-f314-4aa4-9695-ff19b46181d0)
 
+Let's create a test file to see if we can get it to display the contents:
+```bash
+echo "Attention" >> config.html
+```
+Then python server:
+```bash
+python3 -m http.server
+```
+Then in the url tester our IP and file:
+```bash
+http://<your IP>:8000/config.html
+```
+It it successfully printed "Attention".
