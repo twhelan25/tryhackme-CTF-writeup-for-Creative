@@ -217,5 +217,8 @@ Then run the ping command with new shared object libary to execute /bin/sh with 
 ```bash
 sudo -LD_PRELOAD=/tmp/shell.so ping
 ```
+Here is a demonstartion in the screen shot:
 
+![exploit](https://github.com/user-attachments/assets/e06cc671-064a-4171-b031-c8237fb2f13e)
 
+I hope you enjoyed this CTF!
