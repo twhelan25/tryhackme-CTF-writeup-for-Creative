@@ -172,4 +172,15 @@ So we have to use ssh2john:
 ```bash
 ssh2john id_rsa >> hash
 ```
+Then john to crack the hash:
+```bash
+/sbin/john hash
+```
+After some time I got the password for id_rsa and was able to ssh onto the target as saad.
+While looking at files in his home directory I found a password in .bash_history.
+I then used this to check his permissions with sudo -l:
+
+![sudo -l](https://github.com/user-attachments/assets/4ee9f2b4-f85e-47e5-875e-dc7c0a54c36e)
+
+
 
