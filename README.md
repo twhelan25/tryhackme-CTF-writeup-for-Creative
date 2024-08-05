@@ -163,4 +163,13 @@ I used chatgpt as a way to make it neat. Then change the permissions:
 ```bash
 chmod 600 id_rsa
 ```
+I tried using id_rsa to ssh onto the target as saad:
+```bash
+ssh -i id_rsa saad@creative.thm
+```
+But it prompts for a password. 
+So we have to use ssh2john:
+```bash
+ssh2john id_rsa >> hash
+```
 
