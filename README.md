@@ -155,7 +155,7 @@ Next I ran user.txt from the user tester, and displayed the contents of user.txt
 ```bash
 http://localhost:1337/home/saad/user.txt
 ```
-Next, I kept exploring the files in the fashion with .bashrc, and .ssh. .ssh takes us to an id_rsa file:
+Next, I kept exploring the files in the dir like .bashrc, and .ssh. .ssh takes us to an id_rsa file:
 
 ![id_rsa](https://github.com/user-attachments/assets/26c96ea0-9459-4309-b7d5-1f3b78cc74e9)
 
