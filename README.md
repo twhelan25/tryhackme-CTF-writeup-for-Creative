@@ -49,10 +49,15 @@ wfuzz -c -w /usr/share/wordlists/seclists/Discovery/DNS/subdomains-top1million-2
 Command breakdown:
 
 -c: Enables colored output.
+
 -w /usr/share/wordlists/seclists/Discovery/DNS/subdomains-top1million-20000.txt: Specifies the wordlist to use for fuzzing.
+
 --sc 200: Filters results to show only those with a status code of 200.
+
 -H "Host: FUZZ.creative.thm": Sets the Host header, with FUZZ being the placeholder for the subdomains.
+
 -u http://creative.thm: Specifies the target URL.
+
 -t 100: Sets the number of concurrent threads to 100.
 
 ![wfuzz](https://github.com/user-attachments/assets/e93bef44-1ac1-4ee0-9633-a9439470c941)
