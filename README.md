@@ -144,3 +144,23 @@ Will display the file on the browser:
 ![passwd](https://github.com/user-attachments/assets/a6e7621e-d3f4-4d4d-9b68-c48fe0cdce3a)
 
 So we'll save the /etc/passwd file and examine the users on the target.
+Next I tried the directory /home/saad that is revealed in /etc/passwd:
+```bash
+http://localhost:1337/home/saad
+```
+
+![home_saad](https://github.com/user-attachments/assets/b7587daa-c8b5-4f59-9ab3-1b4df4230eff)
+
+Next I ran user.txt from the user tester, and displayed the contents of user.txt.
+```bash
+http://localhost:1337/home/saad/user.txt
+```
+Next, I kept exploring the files in the fashion with .bashrc, and .ssh. .ssh takes us to an id_rsa file:
+
+![id_rsa](https://github.com/user-attachments/assets/26c96ea0-9459-4309-b7d5-1f3b78cc74e9)
+
+I used chatgpt as a way to make it neat. Then change the permissions:
+```bash
+chmod 600 id_rsa
+```
+
