@@ -143,6 +143,7 @@ Will display the file on the browser:
 
 ![passwd](https://github.com/user-attachments/assets/a6e7621e-d3f4-4d4d-9b68-c48fe0cdce3a)
 
+# Privilege Escalation
 So we'll save the /etc/passwd file and examine the users on the target.
 Next I tried the directory /home/saad that is revealed in /etc/passwd:
 ```bash
@@ -182,6 +183,7 @@ I then used this to check his permissions with sudo -l:
 
 ![sudo -l](https://github.com/user-attachments/assets/4ee9f2b4-f85e-47e5-875e-dc7c0a54c36e)
 
+# Exploitation/Privilege Escalation
 I noticed the env_keep += LD_PRELOAD which is an environment variable that we can exploit. A google search brought me to this article:
 
 https://www.hackingarticles.in/linux-privilege-escalation-using-ld_preload/
