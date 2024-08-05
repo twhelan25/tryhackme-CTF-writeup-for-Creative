@@ -42,6 +42,8 @@ I then ran gobuster and nikto scans on the target:
 ![gobuster](https://github.com/user-attachments/assets/54590aef-db43-44fa-a332-a6b0a69a1d41)
 
 Let's check out /assets.
+
+# Enumeration
 It is forbidden. What I'm going to try next is wfuzz to see if there's any hidden subdomains.
 ```bash
 wfuzz -c -w /usr/share/wordlists/seclists/Discovery/DNS/subdomains-top1million-20000.txt --sc 200 -H "Host: FUZZ.creative.thm" -u http://creative.thm -t 100
@@ -122,3 +124,23 @@ def main():
 if __name__ == "__main__":
     main()
 ```
+![portbrute_result](https://github.com/user-attachments/assets/0dc533b9-119d-4f40-ba3a-b4d0b78baecf)
+
+And the results show port 80 and port 1337. I also ran an nmap scan of it:
+
+![nmap1337](https://github.com/user-attachments/assets/263dda57-a8f9-4187-9ea2-b3040a743edc)
+
+Now in the url tester, we'll input:
+```bash
+http://localhost:1337
+```
+This results in a listing of the target's file system, although clicking on the files results in "not found".
+However:
+```bash
+http://localhost:1337/etc/passwd
+```
+Will display the file on the browser:
+
+![passwd](https://github.com/user-attachments/assets/a6e7621e-d3f4-4d4d-9b68-c48fe0cdce3a)
+
+So we'll save the /etc/passwd file and examine the users on the target.
